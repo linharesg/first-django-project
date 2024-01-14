@@ -60,8 +60,9 @@ class DetailView(generic.DetailView):
     
     def get_queryset(self):
         """
-        
+        Excludes any questions that are not published yet.
         """
+        return Question.objects.filter(pub_date__lte=timezone.now())
 
 # def results(request, question_id):
 #     response = "You're looking athe the results of question %s."
@@ -89,7 +90,7 @@ def vote(request, question_id):
             "polls/detail.html",
             {
                 "question": question,
-                "error_message": "You didn't select a choice.",
+                "error_message": f"You didn't select a choice.",
             },
         )
     else:

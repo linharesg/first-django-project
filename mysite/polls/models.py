@@ -22,4 +22,4 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"{self.choice_text} | {self.question.pub_date}"
+        return f"{self.choice_text} | votes: {self.votes} | id: {self.id}"
