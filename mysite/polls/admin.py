@@ -23,6 +23,7 @@ class QuestionAdmin(admin.ModelAdmin):
 
 class ChoiceAdmin(admin.ModelAdmin):
     search_fields = ["question__question_text"]
+    search_help_text = "Search for the question"
 
 admin.site.register(Choice, ChoiceAdmin)
 
